@@ -1,0 +1,61 @@
+repositories {
+    mavenCentral()
+    mavenRepo url: "http://maven.springframework.org/milestone"
+    mavenRepo url: 'https://repository.cloudera.com/content/groups/cloudera-repos'
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'war'
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+
+    compile 'org.springframework:spring-core:3.1.1.RELEASE'
+    compile 'org.springframework:spring-context:3.1.1.RELEASE'
+    compile 'org.springframework:spring-webmvc:3.1.1.RELEASE'
+    compile 'com.google.guava:guava:11.0.1'
+    compile 'joda-time:joda-time:2.1'
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.4'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.4'
+    compile 'org.slf4j:slf4j-log4j12:1.6.4'
+
+    runtime 'log4j:log4j:1.2.16'
+    runtime 'cglib:cglib:2.2.2'
+}
+
+tasks.withType(Compile) { options.compilerArgs = ["-g:source,lines,vars"] }
+
+try {
+    tomcat = tomcatHome
+} catch (MissingPropertyException mpe) {
+    tomcat = "/opt/tomcat"
+}
+
+String run(command, dir = null, logOutput = true) {
+    logger.info("Running " + command);
+    def sout = new StringBuffer()
+    def serr = new StringBuffer()
+    def proc = command.execute(null, dir)
+    proc.consumeProcessOutput(sout, serr)
+    proc.waitFor()
+    if (sout.size() > 0 && logOutput) {
+        logger.info(sout.toString());
+    }
+    if (serr.size() > 0) {
+        logger.warn(serr.toString());
+    }
+    assert proc.exitValue() == 0
+    return sout.toString();
+}
+
+task deploy(type: Copy) {
+    srcFile = war
+    destDir = new File("${tomcat}/webapps/shimmer")
+    into destDir
+    with war
+    doLast {
+        run("touch ${destDir}/WEB-INF/web.xml")
+    }
+}
