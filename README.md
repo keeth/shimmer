@@ -1,7 +1,7 @@
 Sprout Candidate Assignment
 ===========================
 
-The makers of New Shimmer want to do a mobile ad campaign showing off it's dual benefits of floor wax and
+The makers of "New Shimmer" want a mobile ad campaign showing off its dual benefits of floor wax and
 dessert topping.  They want to see which benefit has more appeal via how users interact with their mobile ad, and
 have the ad display differently over time depending on whether people are more interested in waxing floors or topping
 desserts.  The ad will be flighted over two weeks and 1 billion impressions are expected.
@@ -25,6 +25,6 @@ popular, the dessert topping benefit page should show more often.
 You are encouraged to use scalable, big data techniques, e.g. MapReduce to process the exits.  This is not a hard
 requirement, but be prepared to explain how you would scale this application for large volume (millions of exits,
 thousands of requests per second).  You don't need to build a whole distributed infrastructure, just show that you can
-use scalable techniques.
+use scalable algorithms and techniques.
 
 There is no right or wrong answer.  Feel free to ask for clarification.  This exercise should take around 2-4 hours.
