@@ -45,7 +45,7 @@ Getting started
 
     gradle -si -PdeployTo=/path/to/deployment/folder deploy
 
-E.g. For Tomcat, deployTo should be $TOMCAT_HOME/webapps/shimmer
+    E.g. For Tomcat, deployTo should be $TOMCAT_HOME/webapps/shimmer
 
 * Load the base URL of the servlet, in a Webkit-based browser (Chrome or Safari) to see the ad, e.g.
 
