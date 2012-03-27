@@ -25,11 +25,4 @@ public class ExitController {
         }
         return view;
     }
-
-    @RequestMapping(value = "/hello")
-    @ResponseBody
-    public String handleHello(HttpServletResponse response) throws IOException {
-        LOGGER.info("HELLO!!");
-        return "Hello!";
-    }
 }

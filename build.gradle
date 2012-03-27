@@ -27,12 +27,6 @@ dependencies {
 
 tasks.withType(Compile) { options.compilerArgs = ["-g:source,lines,vars"] }
 
-try {
-    tomcat = tomcatHome
-} catch (MissingPropertyException mpe) {
-    tomcat = "/opt/tomcat"
-}
-
 String run(command, dir = null, logOutput = true) {
     logger.info("Running " + command);
     def sout = new StringBuffer()
@@ -52,7 +46,7 @@ String run(command, dir = null, logOutput = true) {
 
 task deploy(type: Copy) {
     srcFile = war
-    destDir = new File("${tomcat}/webapps/shimmer")
+    destDir = new File(deployTo)
     into destDir
     with war
     doLast {

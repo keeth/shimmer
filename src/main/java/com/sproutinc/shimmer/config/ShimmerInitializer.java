@@ -28,7 +28,6 @@ public class ShimmerInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher =
                 servletContext.addServlet("dispatcher", new DispatcherServlet(context));
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("*.html");
-        dispatcher.addMapping("*.json");
+        dispatcher.addMapping("/api/*");
     }
 }
