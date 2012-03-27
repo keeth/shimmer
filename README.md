@@ -19,8 +19,8 @@ The ad contains two exit links, one for people to "take the floor waxing challen
 (/api/exit/FloorWaxingChallenge.html) and one to find dessert recipes (/api/exit/DessertRecipes.html).
 
 Your job is to collect incoming exits and compute a preference.  If people turn out to be more interested in dessert
-toppings, the page emphasizing desserts should be shown more often, likewise if floor waxing turns out to be more
-popular, the dessert topping benefit page should show more often.
+toppings, the message emphasizing desserts should be shown more often, likewise if floor waxing turns out to be more
+popular, the message emphasizing dessert topping should show more often.
 
 You are encouraged to use scalable, big data techniques, e.g. MapReduce to process the exits.  This is not a hard
 requirement, but be prepared to explain how you would scale this application for large volume (millions of exits,
@@ -49,7 +49,7 @@ Getting started
 
 * Load the base URL of the servlet, in a Webkit-based browser (Chrome or Safari) to see the ad, e.g.
 
-    http://localhost:8080/
+    http://localhost:8080/shimmer/
 
 * The two main integration points are the two controller classes, PreferenceController and ExitController
 
