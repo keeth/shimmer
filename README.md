@@ -52,3 +52,5 @@ Getting started
     http://localhost:8080/
 
 * The two main integration points are the two controller classes, PreferenceController and ExitController
+
+* To generate project files for Eclipse or IDEA, run 'gradle eclipse' or 'gradle idea' respectively.
